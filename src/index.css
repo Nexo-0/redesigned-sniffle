@@ -16,3 +16,80 @@ body {
 * {
   box-sizing: border-box;
 }
+
+.theme-sun {
+  background: linear-gradient(180deg, #fffdf5 0%, #f8fafc 45%, #f3f4f6 100%);
+  color: #1f2937;
+}
+
+.theme-sun .text-text {
+  color: #1f2937 !important;
+}
+
+.theme-sun .bg-base {
+  background: transparent !important;
+}
+
+.theme-sun .text-neon {
+  color: #a16207 !important;
+}
+
+.theme-sun .bg-neon {
+  background-color: #facc15 !important;
+}
+
+.theme-sun .border-neon\/30,
+.theme-sun .border-neon\/40,
+.theme-sun .border-neon\/60 {
+  border-color: rgba(161, 98, 7, 0.45) !important;
+}
+
+.theme-sun .hover\:bg-neon:hover {
+  background-color: #facc15 !important;
+}
+
+.theme-sun .hover\:text-neon:hover {
+  color: #a16207 !important;
+}
+
+.theme-sun .hover\:border-neon:hover {
+  border-color: #a16207 !important;
+}
+
+.theme-sun .hover\:shadow-neon:hover {
+  box-shadow: 0 0 20px rgba(161, 98, 7, 0.35) !important;
+}
+
+.theme-sun .bg-slate-950,
+.theme-sun .bg-slate-950\/80,
+.theme-sun .bg-slate-900\/90,
+.theme-sun .bg-slate-900\/70,
+.theme-sun .bg-slate-900\/60,
+.theme-sun .bg-slate-900\/70,
+.theme-sun .from-slate-900,
+.theme-sun .to-emerald-950\/40 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  background-image: none !important;
+}
+
+.theme-sun .text-slate-100,
+.theme-sun .text-slate-200,
+.theme-sun .text-slate-300 {
+  color: #374151 !important;
+}
+
+.theme-sun .text-slate-400 {
+  color: #6b7280 !important;
+}
+
+.theme-sun .text-slate-500 {
+  color: #9ca3af !important;
+}
+
+.theme-sun .border-slate-800,
+.theme-sun .border-slate-800\/60,
+.theme-sun .border-slate-700,
+.theme-sun .border-slate-500,
+.theme-sun .border-slate-400 {
+  border-color: #d1d5db !important;
+}
