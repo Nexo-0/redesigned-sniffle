@@ -43,9 +43,6 @@ function Courses() {
             >
               <h3 className="text-xl font-semibold">{course.title}</h3>
               <p className="mt-3 text-slate-300">{course.description}</p>
-              <button className="mt-6 rounded-lg border border-neon/70 px-4 py-2 text-sm font-semibold text-neon transition hover:bg-neon hover:text-slate-950">
-                View Details
-              </button>
             </article>
           ))}
         </div>
