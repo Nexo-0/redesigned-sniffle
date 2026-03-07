@@ -2,6 +2,7 @@
 import reviewData from "../data/review.json";
 
 const fallbackMapsUrl = "https://maps.app.goo.gl/jdHsXMFbbScbnKgW7";
+const brandName = "CodingWale.in";
 
 function parseReviews(rawList) {
   return (rawList || []).map((item, index) => {
@@ -18,7 +19,7 @@ function parseReviews(rawList) {
       hasText: Boolean(rawText),
       reviewUrl: item.reviewUrl || "",
       placeUrl: item.url || "",
-      placeTitle: item.title || "Codingwale Vaijapur",
+      placeTitle: item.title || brandName,
     };
   });
 }
@@ -45,7 +46,6 @@ function Reviews() {
   const textRefs = useRef({});
 
   const mapsReviewUrl = parsedReviews[0]?.placeUrl || fallbackMapsUrl;
-  const placeTitle = parsedReviews[0]?.placeTitle || "Codingwale Vaijapur";
   const totalReviews = parsedReviews.length;
 
   const overallRating = useMemo(() => {
@@ -118,9 +118,9 @@ function Reviews() {
       <div className="mx-auto w-full max-w-7xl">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="text-3xl font-bold">Google Reviews</h2>
+            <h2 className="text-3xl font-bold">{brandName} Reviews</h2>
             <p className="mt-2 text-slate-400">
-              {placeTitle} | Overall {overallRating.toFixed(1)}/5 from {totalReviews} reviews
+              {brandName} | Overall {overallRating.toFixed(1)}/5 from {totalReviews} reviews
             </p>
           </div>
           <a
