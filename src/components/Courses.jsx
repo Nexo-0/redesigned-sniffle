@@ -1,28 +1,45 @@
 const courses = [
   {
     title: "MERN Stack Development",
-    description:
-      "Learn MongoDB, Express.js, React, and Node.js by building complete frontend + backend projects.",
+    duration: "3-4 Months",
+    description: "Build full-stack web applications from scratch.",
+    highlights: ["HTML", "CSS", "JavaScript", "MongoDB", "Express.js", "React", "Node.js"],
   },
   {
     title: "DevOps Engineering",
-    description:
-      "Master Git, Jenkins, Docker, CI/CD pipelines, and deployment workflows used in real companies.",
+    duration: "3-4 Months",
+    description: "Master deployment and automation workflows used in companies.",
+    highlights: ["Git", "Linux", "Docker", "Jenkins", "CI/CD Pipelines", "Server Deployment"],
   },
   {
     title: "Java Full Stack Development",
-    description:
-      "Build enterprise-ready Java applications with frontend integration and backend architecture skills.",
+    duration: "3-4 Months",
+    description: "Develop production-ready Java applications with modern frontend integration.",
+    highlights: ["Core Java", "Spring Boot", "REST APIs", "Database Integration", "Frontend Basics"],
   },
   {
     title: "Basic HTML/CSS/JavaScript/Bootstrap",
-    description:
-      "Build a strong programming foundation with practical frontend development and UI-building basics.",
+    duration: "3-4 Months",
+    description: "Create a strong frontend foundation with practical UI building.",
+    highlights: ["HTML", "CSS", "JavaScript", "Bootstrap", "Responsive Design", "Mini Projects"],
   },
   {
-    title: "CentOS / Red Hat Linux",
-    description:
-      "Learn Linux administration, command line workflows, and server environment basics for developers.",
+    title: "Red Hat Linux",
+    duration: "3-4 Months",
+    description: "Learn Linux administration and command-line workflows for developers.",
+    highlights: [
+      "Linux Commands",
+      "User & Permission Management",
+      "Package Management",
+      "Networking Basics",
+      "Shell Scripting",
+    ],
+  },
+  {
+    title: "Data Analytics",
+    duration: "3-4 Months",
+    description: "Analyze and visualize data to generate practical business insights.",
+    highlights: ["SQL", "Excel", "Power BI", "Python"],
   },
 ];
 
@@ -32,17 +49,30 @@ function Courses() {
       <div className="mx-auto w-full max-w-7xl">
         <h2 className="text-3xl font-bold">Courses</h2>
         <p className="mt-2 text-slate-400">
-          We teach from basic to advanced with practical coding sessions.
+          Practical courses with clear roadmaps, projects, and in-demand tools.
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {courses.map((course) => (
             <article
               key={course.title}
-              className="rounded-2xl border border-slate-700 bg-slate-900/70 p-6 transition hover:border-neon/80 hover:shadow-neon"
+              className="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-900/85 to-slate-800/70 p-6 transition hover:-translate-y-1 hover:border-neon/80 hover:shadow-neon"
             >
-              <h3 className="text-xl font-semibold">{course.title}</h3>
+              <div className="flex items-start justify-between gap-3">
+                <h3 className="text-xl font-semibold">{course.title}</h3>
+                <span className="rounded-full border border-neon/40 bg-neon/10 px-3 py-1 text-xs font-semibold text-neon">
+                  {course.duration}
+                </span>
+              </div>
               <p className="mt-3 text-slate-300">{course.description}</p>
+              <ul className="mt-4 space-y-1.5 text-sm text-slate-200">
+                {course.highlights.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-neon" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </article>
           ))}
         </div>
