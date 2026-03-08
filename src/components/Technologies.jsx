@@ -12,7 +12,6 @@ const technologies = [
   "REST APIs",
   "MongoDB",
   "MySQL",
-  "PostgreSQL",
   "MERN Stack",
   "Java Full Stack",
   "Spring Boot",
