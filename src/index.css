@@ -95,3 +95,54 @@ body {
 .theme-sun .border-slate-400 {
   border-color: #d1d5db !important;
 }
+
+.course-reveal {
+  animation: courseFadeUp 0.55s ease-out both;
+}
+
+@keyframes courseFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.course-accent-web:hover {
+  box-shadow: 0 14px 38px rgba(14, 165, 233, 0.22);
+  border-color: rgba(14, 165, 233, 0.7);
+}
+
+.course-accent-devops:hover {
+  box-shadow: 0 14px 38px rgba(16, 185, 129, 0.24);
+  border-color: rgba(16, 185, 129, 0.7);
+}
+
+.course-accent-data:hover {
+  box-shadow: 0 14px 38px rgba(251, 191, 36, 0.23);
+  border-color: rgba(251, 191, 36, 0.75);
+}
+
+.course-accent-linux:hover {
+  box-shadow: 0 14px 38px rgba(239, 68, 68, 0.22);
+  border-color: rgba(239, 68, 68, 0.68);
+}
+
+.theme-sun .course-accent-web:hover {
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.2);
+}
+
+.theme-sun .course-accent-devops:hover {
+  box-shadow: 0 12px 28px rgba(5, 150, 105, 0.2);
+}
+
+.theme-sun .course-accent-data:hover {
+  box-shadow: 0 12px 28px rgba(202, 138, 4, 0.22);
+}
+
+.theme-sun .course-accent-linux:hover {
+  box-shadow: 0 12px 28px rgba(220, 38, 38, 0.18);
+}
