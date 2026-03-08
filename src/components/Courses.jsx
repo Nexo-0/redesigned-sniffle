@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const courses = [
   {
@@ -76,10 +76,17 @@ const categoryAccentClass = {
 function Courses() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeCourse, setActiveCourse] = useState(null);
+  const coursesTrackRef = useRef(null);
 
   const filteredCourses = useMemo(() => {
     if (activeCategory === "All") return courses;
     return courses.filter((course) => course.category === activeCategory);
+  }, [activeCategory]);
+
+  useEffect(() => {
+    if (coursesTrackRef.current) {
+      coursesTrackRef.current.scrollTo({ left: 0, behavior: "auto" });
+    }
   }, [activeCategory]);
 
   return (
@@ -107,11 +114,11 @@ function Courses() {
           ))}
         </div>
 
-        <div className="mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 md:grid md:snap-none md:grid-cols-2 md:overflow-visible xl:grid-cols-3">
+        <div key={activeCategory} ref={coursesTrackRef} className="mt-8 grid grid-flow-col auto-cols-[94%] snap-x snap-mandatory gap-3 sm:auto-cols-[90%] sm:gap-4 overflow-x-auto pb-2 overscroll-x-contain md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:snap-none md:overflow-visible xl:grid-cols-3">
           {filteredCourses.map((course, index) => (
             <article
               key={course.title}
-              className={`course-reveal group min-w-[84%] shrink-0 snap-start rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-900/85 to-slate-800/70 p-6 transition hover:-translate-y-1 hover:border-neon/80 md:min-w-0 ${categoryAccentClass[course.category]}`}
+              className={`course-reveal group flex h-full w-full snap-start flex-col rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-900/85 to-slate-800/70 p-5 sm:p-6 transition hover:-translate-y-1 hover:border-neon/80 ${categoryAccentClass[course.category]}`}
               style={{ animationDelay: `${index * 90}ms` }}
             >
               <div className="mb-4 flex items-center justify-between">
@@ -122,14 +129,14 @@ function Courses() {
                   {course.category}
                 </span>
               </div>
-              <div className="flex items-start justify-between gap-3">
-                <h3 className="text-xl font-semibold">{course.title}</h3>
-                <span className="rounded-full border border-neon/40 bg-neon/10 px-3 py-1 text-xs font-semibold text-neon">
+              <div className="flex flex-wrap items-start gap-3">
+                <h3 className="min-w-0 flex-1 break-words text-xl font-semibold">{course.title}</h3>
+                <span className="shrink-0 rounded-full border border-neon/40 bg-neon/10 px-3 py-1 text-xs font-semibold text-neon">
                   {course.duration}
                 </span>
               </div>
               <p className="mt-3 text-slate-300">{course.description}</p>
-              <ul className="mt-4 space-y-1.5 text-sm text-slate-200">
+              <ul className="mt-4 flex-1 space-y-1.5 text-sm text-slate-200">
                 {course.highlights.map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-neon" />
@@ -198,3 +205,5 @@ function Courses() {
 }
 
 export default Courses;
+
+
